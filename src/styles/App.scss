@@ -1,0 +1,121 @@
+.App{
+  font-size: 10rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.home-screen{
+  min-height: 60vh;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+ a{
+  padding: 1.5rem 2rem;
+  border:none;
+  color: white;
+  font-weight: bold;
+  border-radius: 1rem;
+  text-decoration: none;
+ }
+ #html{
+   background-color: rgba(39, 32, 32, 0.712);
+   transition: .3s ease-in-out;
+  }
+ #css{
+  background-color:rgba(39, 32, 32, 0.712);
+  transition: .3s ease-in-out;
+ }
+ #html:hover{
+   background-color: rgb(163, 0, 0);
+   transition: .3s ease-in-out;
+  }
+ #css:hover{
+  background-color: rgb(0, 38, 163);
+  transition: .3s ease-in-out; 
+}
+}
+
+.question-container{
+  min-height: 78vh;
+  width: 70%;
+  border: .1rem solid black;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  li{
+  list-style-type: none;
+  }
+}
+.question, .answers{
+width: 90%;
+}
+.answers{
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+   padding: 0 1rem;
+  border-radius: 1rem;
+  li{
+    cursor: pointer;
+  }
+}
+.button{
+  min-height: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .showButton{
+    padding: .5rem ;
+    border:none;
+    color: white;
+    font-weight: bold;
+    border-radius: 1rem;
+    text-decoration: none;
+    background-color: rgb(26, 153, 104);
+   }
+   .dontShow{ 
+     display: none;
+    }
+}
+.html-title{
+  color: rgb(204, 72, 72);
+  font-weight: bold;
+}
+.css-title{
+  color: rgb(92, 72, 204);
+  font-weight: bold;
+}
+.results{
+  min-height: 80vh;
+  width: 90%;
+  border: .1rem solid black;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  span{
+    color: green;
+  }
+}
+@media screen and (max-width: 900px){
+  .home-screen{
+    width: 95%;
+  }
+  .question-container{
+    width: 90%;
+    min-height: 90vh;
+    font-size: 5rem;
+  }
+  .results{
+    font-size: 4rem;
+  }
+}
