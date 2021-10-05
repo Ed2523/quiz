@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { quizzes } from '../data/quizzes'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
@@ -25,10 +25,12 @@ export default function QuizCss({ cssAnswers, setCssAnswers, QAnswered, setQAnsw
     }, [currentQ, correctAnswer, wrongAnswers])
 
 
+    const rightAns = useRef()
     const nextQuestion = (e) => {
         if (e.target.innerText === correctAnswer) {
             e.target.style.color = 'green'
         } else {
+            rightAns.current.style.color = 'green'
             e.target.style.color = 'red'
         }
         setTimeout(() => {
@@ -51,7 +53,7 @@ export default function QuizCss({ cssAnswers, setCssAnswers, QAnswered, setQAnsw
             <h1 className='css-title'>CSS</h1>
             <h1 className='question'>{questions[currentQ].text}</h1>
             <ul className='answers'>
-                {answers ? answers.map(x => <li onClick={nextQuestion} key={uuidv4()}>{x}</li>) : <h1>Loading</h1>}
+                {answers ? answers.map(x => <li onClick={nextQuestion} key={uuidv4()} ref={x === correctAnswer ? rightAns : null}>{x}</li>) : <h1>Loading</h1>}
             </ul>
             <div className="button">
                 <Link className={showButton ? 'showButton' : 'dontShow'} to={QAnswered >= 7 ? '/results' : '/QuizHtml'}>{QAnswered >= 7 ? 'Go to Results' : 'Next Quiz'}</Link>
